@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="1200" height="320" role="img" aria-labelledby="title desc">
+  <title id="title">Talal Muzaffar</title>
+  <desc id="desc">ML Lead at DOST AI. Documents are scanned, embedded and turned into answers.</desc>
+  <defs>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#ffffff" opacity=".06"/>
+    </pattern>
+    <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5eead4" stop-opacity="0"/>
+      <stop offset=".85" stop-color="#5eead4" stop-opacity=".35"/>
+      <stop offset="1" stop-color="#5eead4" stop-opacity=".9"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="1" cy=".5" r=".6">
+      <stop offset="0" stop-color="#5eead4" stop-opacity=".10"/>
+      <stop offset="1" stop-color="#5eead4" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="front">
+      <rect x="860" y="88" width="124" height="160" rx="8"/>
+    </clipPath>
+  </defs>
+  <style>
+    .name { font: 700 56px -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; fill: #f8fafc; letter-spacing: -1px; }
+    .role { font: 400 19px ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace; fill: #94a3b8; }
+    .chip { fill: #22304f; stroke: #3b4a6b; stroke-width: 1.2; }
+    .chipt { font: 500 16px ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace; fill: #e2e8f0; }
+    .num { fill: #5eead4; }
+    .doc { fill: #22304f; stroke: #3b4a6b; stroke-width: 1.2; }
+    .line { fill: #3b4a6b; }
+    .edge { stroke: #3b4a6b; stroke-width: 1.2; }
+    .node { fill: #5eead4; }
+    .scan { animation: scan 3.6s ease-in-out infinite; }
+    .flow { animation: flow 3.6s linear infinite; opacity: 0; }
+    .f2 { animation-delay: .6s; } .f3 { animation-delay: 1.2s; } .f4 { animation-delay: 1.8s; } .f5 { animation-delay: 2.4s; } .f6 { animation-delay: 3s; }
+    .pulse { animation: pulse 3.6s ease-in-out infinite; }
+    .p2 { animation-delay: .9s; } .p3 { animation-delay: 1.8s; } .p4 { animation-delay: 2.7s; }
+    .blink { animation: blink 1.2s steps(1) infinite; }
+    @keyframes scan { 0% { transform: translateY(-60px); } 100% { transform: translateY(180px); } }
+    @keyframes flow { 0% { transform: translateX(0); opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { transform: translateX(78px); opacity: 0; } }
+    @keyframes pulse { 0%, 100% { opacity: .45; } 50% { opacity: 1; } }
+    @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .scan, .flow, .pulse, .blink { animation: none; } .flow { opacity: .8; } }
+  </style>
+
+  <rect width="1200" height="320" rx="18" fill="#1a2238"/>
+  <rect width="1200" height="320" rx="18" fill="url(#grid)"/>
+  <rect width="1200" height="320" rx="18" fill="url(#glow)"/>
+
+  <!-- left: who -->
+  <text class="name" x="64" y="128">Talal Muzaffar</text>
+  <text class="role" x="66" y="168">ML Lead @ DOST AI<tspan fill="#5eead4"> · </tspan>document AI, RAG, agents</text>
+  <rect class="blink" x="576" y="153" width="10" height="20" fill="#5eead4"/>
+
+  <rect class="chip" x="64" y="206" width="200" height="38" rx="19"/>
+  <text class="chipt" x="84" y="230"><tspan class="num">3.8M+</tspan> docs in RAG</text>
+  <rect class="chip" x="276" y="206" width="210" height="38" rx="19"/>
+  <text class="chipt" x="296" y="230"><tspan class="num">100K+</tspan> pages/month</text>
+  <rect class="chip" x="498" y="206" width="158" height="38" rx="19"/>
+  <text class="chipt" x="518" y="230"><tspan class="num">10</tspan> countries</text>
+
+  <!-- right: documents -> embeddings -> answers -->
+  <rect class="doc" x="820" y="64" width="124" height="160" rx="8" opacity=".55"/>
+  <rect class="doc" x="840" y="76" width="124" height="160" rx="8" opacity=".8"/>
+  <rect class="doc" x="860" y="88" width="124" height="160" rx="8"/>
+  <rect x="878" y="108" width="56" height="7" rx="3.5" style="fill:#5eead4;opacity:.85"/>
+  <rect class="line" x="878" y="128" width="88" height="5" rx="2.5"/>
+  <rect class="line" x="878" y="142" width="72" height="5" rx="2.5"/>
+  <rect class="line" x="878" y="156" width="82" height="5" rx="2.5"/>
+  <rect class="line" x="878" y="178" width="40" height="5" rx="2.5"/>
+  <rect class="line" x="936" y="178" width="30" height="5" rx="2.5"/>
+  <rect class="line" x="878" y="192" width="40" height="5" rx="2.5"/>
+  <rect class="line" x="936" y="192" width="30" height="5" rx="2.5"/>
+  <rect class="line" x="878" y="218" width="88" height="5" rx="2.5"/>
+  <g clip-path="url(#front)">
+    <rect class="scan" x="860" y="88" width="124" height="60" fill="url(#beam)"/>
+  </g>
+
+  <circle class="flow" cx="998" cy="168" r="3.5" fill="#5eead4"/>
+  <circle class="flow f2" cx="998" cy="158" r="2.5" fill="#5eead4"/>
+  <circle class="flow f3" cx="998" cy="176" r="3" fill="#5eead4"/>
+  <circle class="flow f4" cx="998" cy="164" r="2.5" fill="#5eead4"/>
+  <circle class="flow f5" cx="998" cy="172" r="3.5" fill="#5eead4"/>
+  <circle class="flow f6" cx="998" cy="160" r="3" fill="#5eead4"/>
+
+  <line class="edge" x1="1092" y1="112" x2="1128" y2="140"/>
+  <line class="edge" x1="1128" y1="140" x2="1100" y2="176"/>
+  <line class="edge" x1="1100" y1="176" x2="1142" y2="204"/>
+  <line class="edge" x1="1092" y1="112" x2="1100" y2="176"/>
+  <line class="edge" x1="1100" y1="176" x2="1084" y2="224"/>
+  <line class="edge" x1="1128" y1="140" x2="1150" y2="96"/>
+  <circle class="node pulse" cx="1092" cy="112" r="6"/>
+  <circle class="node pulse p2" cx="1128" cy="140" r="5"/>
+  <circle class="node" cx="1100" cy="176" r="8"/>
+  <circle class="node pulse p3" cx="1142" cy="204" r="5"/>
+  <circle class="node pulse p4" cx="1084" cy="224" r="4.5"/>
+  <circle class="node pulse p2" cx="1150" cy="96" r="4"/>
+</svg>

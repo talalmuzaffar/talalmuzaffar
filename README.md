@@ -1,11 +1,11 @@
 <div align="center">
-  <img src="assets/header.svg" alt="Talal Muzaffar, ML Lead at DOST AI: 3.8M+ documents in RAG, 100K+ pages a month, customers in 10 countries" width="100%">
+  <img src="assets/header.svg" alt="Talal Muzaffar, ML Lead at DOST AI, Paris. I turn piles of financial documents into answers: 3.8M+ docs indexed, 100K+ pages a month, 10 countries." width="100%">
 </div>
 
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&duration=3200&pause=1400&color=5EEAD4&center=true&vCenter=true&width=700&lines=I+build+AI+that+reads+documents+so+people+don%27t+have+to;RAG+over+3.8M%2B+invoices%2C+POs+and+delivery+notes;Agents+on+MCP%2C+with+a+human+approving+every+write;From+ML+intern+to+ML+Lead+at+DOST+AI">
-    <img alt="I build AI that reads documents so people don't have to" src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&duration=3200&pause=1400&color=0F766E&center=true&vCenter=true&width=700&lines=I+build+AI+that+reads+documents+so+people+don%27t+have+to;RAG+over+3.8M%2B+invoices%2C+POs+and+delivery+notes;Agents+on+MCP%2C+with+a+human+approving+every+write;From+ML+intern+to+ML+Lead+at+DOST+AI">
+    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&duration=3200&pause=1400&color=5EEAD4&center=true&vCenter=true&width=700&lines=Ask+an+invoice+a+question.+Get+an+answer.;Agents+that+ask+before+they+act.;Led+Google+AI+Booster%27s+winning+team.;Intern+%E2%86%92+ML+Lead+at+DOST+AI.">
+    <img alt="Ask an invoice a question. Get an answer." src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&duration=3200&pause=1400&color=0F766E&center=true&vCenter=true&width=700&lines=Ask+an+invoice+a+question.+Get+an+answer.;Agents+that+ask+before+they+act.;Led+Google+AI+Booster%27s+winning+team.;Intern+%E2%86%92+ML+Lead+at+DOST+AI.">
   </picture>
 </div>
 
@@ -16,7 +16,7 @@
   <a href="mailto:talalmuzaffar3@gmail.com"><img alt="Email" src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white"></a>
 </p>
 
-I lead the ML team at [DOST AI](https://dost.io), where we build AI that reads financial documents so finance teams don't have to. That means a RAG system over 3.8M+ invoices, purchase orders and delivery notes, extraction that handles 100K+ pages a month, and agents that answer questions about all of it for customers in ten countries.
+Accounts payable runs on paperwork: invoices, purchase orders, delivery notes. At [DOST AI](https://dost.io) I lead the ML team that makes all of it answerable. We search 3.8M+ documents in under a second, extract 100K+ pages a month, and run agents that answer finance questions for customers in ten countries.
 
 ### How I got here
 

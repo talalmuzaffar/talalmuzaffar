@@ -1,96 +1,169 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="1200" height="320" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 340" width="1200" height="340" role="img" aria-labelledby="title desc">
   <title id="title">Talal Muzaffar</title>
-  <desc id="desc">ML Lead at DOST AI. Documents are scanned, embedded and turned into answers.</desc>
+  <desc id="desc">ML Lead at DOST AI. An invoice is scanned, its fields extracted and indexed, and an agent answers a question about it, waiting for approval before acting.</desc>
   <defs>
     <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
       <circle cx="2" cy="2" r="1.2" fill="#ffffff" opacity=".06"/>
     </pattern>
     <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#5eead4" stop-opacity="0"/>
-      <stop offset=".85" stop-color="#5eead4" stop-opacity=".35"/>
-      <stop offset="1" stop-color="#5eead4" stop-opacity=".9"/>
+      <stop offset=".85" stop-color="#5eead4" stop-opacity=".28"/>
+      <stop offset="1" stop-color="#5eead4" stop-opacity=".95"/>
     </linearGradient>
-    <radialGradient id="glow" cx="1" cy=".5" r=".6">
-      <stop offset="0" stop-color="#5eead4" stop-opacity=".10"/>
+    <radialGradient id="glow" cx=".82" cy=".5" r=".55">
+      <stop offset="0" stop-color="#5eead4" stop-opacity=".09"/>
       <stop offset="1" stop-color="#5eead4" stop-opacity="0"/>
     </radialGradient>
-    <clipPath id="front">
-      <rect x="860" y="88" width="124" height="160" rx="8"/>
-    </clipPath>
+    <clipPath id="docclip"><rect x="768" y="82" width="124" height="168" rx="8"/></clipPath>
+    <clipPath id="cardclip"><rect x="904" y="200" width="252" height="102" rx="12"/></clipPath>
   </defs>
   <style>
-    .name { font: 700 56px -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; fill: #f8fafc; letter-spacing: -1px; }
-    .role { font: 400 19px ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace; fill: #94a3b8; }
+    .name { font: 700 54px -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; fill: #f8fafc; letter-spacing: -1px; }
+    .tag { font: 500 24px -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; fill: #cbd5e1; }
+    .role { font: 400 18px ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace; fill: #94a3b8; }
     .chip { fill: #22304f; stroke: #3b4a6b; stroke-width: 1.2; }
     .chipt { font: 500 16px ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace; fill: #e2e8f0; }
-    .num { fill: #5eead4; }
+    .teal { fill: #5eead4; }
     .doc { fill: #22304f; stroke: #3b4a6b; stroke-width: 1.2; }
-    .line { fill: #3b4a6b; }
+    .ln { fill: #3b4a6b; }
+    .lnb { fill: #64748b; }
+    .box { fill: #5eead4; fill-opacity: .1; stroke: #5eead4; stroke-width: 1.5; }
     .edge { stroke: #3b4a6b; stroke-width: 1.2; }
-    .node { fill: #5eead4; }
-    .scan { animation: scan 3.6s ease-in-out infinite; }
-    .flow { animation: flow 3.6s linear infinite; opacity: 0; }
-    .f2 { animation-delay: .6s; } .f3 { animation-delay: 1.2s; } .f4 { animation-delay: 1.8s; } .f5 { animation-delay: 2.4s; } .f6 { animation-delay: 3s; }
-    .pulse { animation: pulse 3.6s ease-in-out infinite; }
-    .p2 { animation-delay: .9s; } .p3 { animation-delay: 1.8s; } .p4 { animation-delay: 2.7s; }
-    .blink { animation: blink 1.2s steps(1) infinite; }
-    @keyframes scan { 0% { transform: translateY(-60px); } 100% { transform: translateY(180px); } }
-    @keyframes flow { 0% { transform: translateX(0); opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { transform: translateX(78px); opacity: 0; } }
-    @keyframes pulse { 0%, 100% { opacity: .45; } 50% { opacity: 1; } }
-    @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0; } }
-    @media (prefers-reduced-motion: reduce) { .scan, .flow, .pulse, .blink { animation: none; } .flow { opacity: .8; } }
+    .nedge { stroke: #5eead4; stroke-width: 1.4; stroke-dasharray: 50; }
+    .node { fill: #5eead4; opacity: .5; }
+    .q { font: 400 14px ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace; fill: #94a3b8; }
+    .a { font: 600 16px ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace; fill: #e2e8f0; }
+    .btn { fill: #5eead4; fill-opacity: .12; stroke: #5eead4; stroke-width: 1.2; }
+    .btnt { font: 500 12px ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace; fill: #5eead4; }
+    .cover { fill: #22304f; }
+
+    /* one 10s loop; every element keys off the same clock so they never drift */
+    .front { animation: front 10s infinite; }
+    .beam { animation: beam 10s linear infinite; transform: translateY(170px); }
+    .bA { animation: bA 10s infinite; }
+    .bB { animation: bB 10s infinite; }
+    .bC { animation: bC 10s infinite; }
+    .dA { animation: dA 10s ease-in-out infinite; opacity: 0; }
+    .dB { animation: dB 10s ease-in-out infinite; opacity: 0; }
+    .dC { animation: dC 10s ease-in-out infinite; opacity: 0; }
+    .newnode { animation: newnode 10s infinite; transform-box: fill-box; transform-origin: center; }
+    .ne { animation: ne 10s infinite; }
+    .link { animation: link 10s infinite; stroke-dasharray: 30; }
+    .hub { animation: hub 10s infinite; }
+    .card { animation: card 10s infinite; }
+    .cq { animation: cq 10s infinite; transform: translateX(144px); }
+    .ca { animation: ca 10s infinite; transform: translateX(193px); }
+    .bt { animation: bt 10s infinite; }
+    .press { animation: press 10s infinite; }
+
+    @keyframes front { 0% { opacity: 0; transform: translateX(-18px); } 5%, 92% { opacity: 1; transform: none; } 100% { opacity: 0; transform: translateX(18px); } }
+    @keyframes beam { 0%, 6% { transform: translateY(-46px); } 40%, 100% { transform: translateY(170px); } }
+    @keyframes bA { 0%, 12.6% { opacity: 0; } 14.6%, 92% { opacity: 1; } 97%, 100% { opacity: 0; } }
+    @keyframes bB { 0%, 21.1% { opacity: 0; } 23.1%, 92% { opacity: 1; } 97%, 100% { opacity: 0; } }
+    @keyframes bC { 0%, 29.1% { opacity: 0; } 31.1%, 92% { opacity: 1; } 97%, 100% { opacity: 0; } }
+    @keyframes dA { 0%, 34% { opacity: 0; transform: none; } 36% { opacity: 1; } 48% { opacity: 1; transform: translate(220px, 43px); } 50%, 100% { opacity: 0; transform: translate(220px, 43px); } }
+    @keyframes dB { 0%, 37% { opacity: 0; transform: none; } 39% { opacity: 1; } 50% { opacity: 1; transform: translate(177px, -11px); } 52%, 100% { opacity: 0; transform: translate(177px, -11px); } }
+    @keyframes dC { 0%, 40% { opacity: 0; transform: none; } 42% { opacity: 1; } 52% { opacity: 1; transform: translate(180px, -62px); } 54%, 100% { opacity: 0; transform: translate(180px, -62px); } }
+    @keyframes newnode { 0%, 49% { opacity: 0; transform: scale(0); } 53% { opacity: 1; transform: scale(1.35); } 56%, 92% { opacity: 1; transform: scale(1); } 98%, 100% { opacity: 0; transform: scale(1); } }
+    @keyframes ne { 0%, 52% { stroke-dashoffset: 50; opacity: 1; } 58%, 92% { stroke-dashoffset: 0; opacity: 1; } 98%, 100% { stroke-dashoffset: 0; opacity: 0; } }
+    @keyframes hub { 0%, 54% { opacity: .5; } 58% { opacity: 1; } 66%, 100% { opacity: .5; } }
+    @keyframes link { 0%, 58% { stroke-dashoffset: 30; opacity: 1; } 62%, 92% { stroke-dashoffset: 0; opacity: 1; } 98%, 100% { stroke-dashoffset: 0; opacity: 0; } }
+    @keyframes card { 0%, 61% { opacity: 0; transform: translateY(8px); } 65%, 92% { opacity: 1; transform: none; } 98%, 100% { opacity: 0; transform: none; } }
+    @keyframes cq { 0%, 66% { transform: translateX(0); animation-timing-function: steps(17, end); } 72%, 100% { transform: translateX(144px); } }
+    @keyframes ca { 0%, 74% { transform: translateX(0); animation-timing-function: steps(20, end); } 79%, 100% { transform: translateX(193px); } }
+    @keyframes bt { 0%, 81% { opacity: 0; } 84%, 92% { opacity: 1; } 98%, 100% { opacity: 0; } }
+    @keyframes press { 0%, 87% { fill-opacity: .12; } 88.5%, 92% { fill-opacity: .45; } 98%, 100% { fill-opacity: .12; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; }
+      .dA, .dB, .dC { opacity: 0; }
+    }
   </style>
 
-  <rect width="1200" height="320" rx="18" fill="#1a2238"/>
-  <rect width="1200" height="320" rx="18" fill="url(#grid)"/>
-  <rect width="1200" height="320" rx="18" fill="url(#glow)"/>
+  <rect width="1200" height="340" rx="18" fill="#1a2238"/>
+  <rect width="1200" height="340" rx="18" fill="url(#grid)"/>
+  <rect width="1200" height="340" rx="18" fill="url(#glow)"/>
 
   <!-- left: who -->
-  <text class="name" x="64" y="128">Talal Muzaffar</text>
-  <text class="role" x="66" y="168">ML Lead @ DOST AI<tspan fill="#5eead4"> · </tspan>document AI, RAG, agents</text>
-  <rect class="blink" x="576" y="153" width="10" height="20" fill="#5eead4"/>
+  <text class="name" x="64" y="110">Talal Muzaffar</text>
+  <text class="tag" x="65" y="152">I turn piles of financial documents into answers.</text>
+  <text class="role" x="66" y="196">ML Lead at</text>
+  <g transform="translate(184 178.2) scale(0.8)">
+    <path d="M27.8955 14.9303C27.8955 12.4951 28.4706 10.5691 29.6218 9.15351C30.773 7.73787 32.3486 7.02955 34.3487 7.02955C35.1227 7.02955 35.8918 7.1852 36.656 7.49651C37.4202 7.80781 38.1233 8.37032 38.7644 9.18109V1.86153H41.7364V22.179H38.8491V20.1683C38.2444 20.9614 37.561 21.5702 36.7968 21.9948C36.0326 22.4194 35.1217 22.6321 34.0651 22.6321C32.6687 22.6321 31.5126 22.2962 30.5977 21.6273C29.6829 20.9574 29.0024 20.0412 28.5602 18.8807C28.1171 17.7193 27.8945 16.4031 27.8945 14.9303H27.8955ZM30.9532 14.8456C30.9532 16.1864 31.1374 17.2434 31.5047 18.0168C31.873 18.7911 32.3447 19.3438 32.9198 19.6738C33.4959 20.0048 34.0946 20.1693 34.718 20.1693C35.9637 20.1693 36.9632 19.7546 37.7186 18.9231C38.4729 18.0926 38.851 16.8937 38.851 15.3264V14.42C38.851 12.702 38.4877 11.4469 37.7609 10.6539C37.0342 9.86084 36.077 9.46481 34.8874 9.46481C33.7736 9.46481 32.839 9.87561 32.0847 10.6962C31.3294 11.5178 30.9522 12.901 30.9522 14.8446L30.9532 14.8456Z" fill="white"/>
+<path d="M43.9473 14.8732C43.9473 13.2684 44.2447 11.8814 44.8385 10.711C45.4333 9.54067 46.2723 8.63434 47.3575 7.99203C48.4427 7.35071 49.721 7.02956 51.1932 7.02956C53.4384 7.02956 55.1943 7.72309 56.4587 9.11115C57.7232 10.4982 58.3554 12.3818 58.3554 14.7609C58.3554 17.14 57.7084 19.1172 56.4164 20.524C55.1234 21.9307 53.3547 22.6331 51.1085 22.6331C48.8622 22.6331 47.0838 21.9445 45.8292 20.5663C44.5736 19.1881 43.9473 17.2907 43.9473 14.8742V14.8732ZM47.0325 14.8171C47.0325 16.4218 47.3536 17.7193 47.9947 18.7103C48.6357 19.7014 49.6835 20.1969 51.137 20.1969C52.5906 20.1969 53.6423 19.6964 54.2932 18.6965C54.9442 17.6956 55.2701 16.3933 55.2701 14.7885C55.2701 13.1837 54.9442 11.9424 54.2932 10.9514C53.6423 9.96034 52.5896 9.46481 51.137 9.46481C49.6845 9.46481 48.6604 9.96034 48.0094 10.9514C47.3585 11.9424 47.0325 13.231 47.0325 14.8171Z" fill="white"/>
+<path d="M69.3809 18.2434C69.3809 17.6956 69.2293 17.2336 68.9279 16.8553C68.6256 16.478 67.9747 16.214 66.9751 16.0623L65.1632 15.7795C63.4644 15.4968 62.1764 15.0387 61.2989 14.4063C60.4215 13.7738 59.9823 12.7778 59.9823 11.4183C59.9823 10.4933 60.2413 9.70518 60.7613 9.054C61.2802 8.40283 61.9873 7.90238 62.8844 7.55266C63.7806 7.20392 64.8047 7.02856 65.9559 7.02856C67.371 7.02856 68.4936 7.20786 69.3248 7.56645C70.1549 7.92504 70.7822 8.4117 71.2067 9.02445C71.6311 9.63819 71.9285 10.3416 72.0989 11.1336L69.4095 11.5021C69.1643 10.7662 68.8147 10.2096 68.3627 9.83128C67.9097 9.45397 67.1268 9.26482 66.013 9.26482C64.8057 9.26482 63.9696 9.46776 63.5078 9.87364C63.0449 10.2795 62.8145 10.7376 62.8145 11.2469C62.8145 11.8134 62.9839 12.2567 63.3246 12.5778C63.6643 12.899 64.3527 13.1443 65.3906 13.3137L67.4281 13.6536C69.2017 13.956 70.4661 14.4565 71.2214 15.154C71.9758 15.8524 72.3539 16.8809 72.3539 18.2404C72.3539 19.524 71.8537 20.5762 70.8541 21.3978C69.8536 22.2194 68.344 22.6292 66.3252 22.6292C65.0982 22.6292 63.9942 22.4735 63.0134 22.1622C62.0316 21.8509 61.2438 21.3406 60.65 20.6333C60.0552 19.925 59.7204 18.9862 59.6445 17.8158H62.4747C62.6254 18.7409 63.0174 19.397 63.6496 19.7841C64.2818 20.1713 65.1454 20.3644 66.2395 20.3644C67.3907 20.3644 68.2022 20.1713 68.6739 19.7841C69.1456 19.397 69.3819 18.8827 69.3819 18.2404L69.3809 18.2434Z" fill="white"/>
+<path d="M75.3977 17.2799V9.83226H72.9082V7.48173H75.3977V3.81308H78.3421V7.48173H82.2054V9.83226H78.3421V17.7892C78.3421 18.4877 78.4977 19.0403 78.8089 19.4462C79.1201 19.8521 79.5967 20.055 80.2388 20.055C80.616 20.055 80.9606 20.0265 81.2718 19.9703C81.583 19.9132 81.8617 19.8472 82.1069 19.7723L82.5885 22.0095C82.1729 22.1415 81.7297 22.2548 81.258 22.3494C80.7863 22.444 80.2388 22.4913 79.6164 22.4913C78.4839 22.4913 77.6164 22.2785 77.0127 21.8539C76.4081 21.4293 75.9886 20.8254 75.7532 20.0412C75.5169 19.258 75.3997 18.3379 75.3997 17.2799H75.3977Z" fill="white"/>
+<path d="M19.5767 18.3438C18.3182 20.3841 13.9921 22.2617 11.0034 23.103L10.9916 23.107C8.71477 23.7197 6.63101 23.9995 4.75995 23.9995C3.30939 24.0104 1.55355 23.8448 0.894742 23.1237C-0.652326 21.4352 0.113823 15.9135 0.90459 13.0231L0.908528 13.0113C1.74853 10.0204 3.61861 5.69863 5.66495 4.43175C5.08295 5.68287 4.57777 7.05615 4.16121 8.52499L4.1553 8.54371C3.32613 11.641 2.41227 17.5666 4.39263 19.6245C5.32619 20.6264 7.39716 20.8018 8.95407 20.789C10.9807 20.789 13.1817 20.4737 15.4703 19.855L15.489 19.8491C16.9514 19.4334 18.3222 18.928 19.5767 18.3438Z" fill="white"/>
+<path d="M23.9463 13.7186C23.8537 14.0595 23.5602 14.7225 22.4022 15.5658C20.2002 17.1361 17.9678 18.1015 15.1966 18.9073L15.1848 18.9113C12.908 19.524 10.8243 19.8038 8.9532 19.8038C7.50362 19.8146 5.74483 19.6482 5.08799 18.928C3.54191 17.2425 4.30609 11.7158 5.09784 8.82742L5.10178 8.8156C5.69461 6.75371 6.35046 5.11149 7.27122 3.44562C7.99601 2.12455 9.21121 0.296142 10.2826 0.0597093C12.4806 -0.493937 17.0046 2.93237 19.0224 4.9716L19.0303 4.97849C21.1338 7.08275 24.4692 11.4735 23.9463 13.7186Z" fill="white"/>
+  </g>
+  <text class="role" x="260" y="196"><tspan class="teal">·</tspan> Paris</text>
 
-  <rect class="chip" x="64" y="206" width="200" height="38" rx="19"/>
-  <text class="chipt" x="84" y="230"><tspan class="num">3.8M+</tspan> docs in RAG</text>
-  <rect class="chip" x="276" y="206" width="210" height="38" rx="19"/>
-  <text class="chipt" x="296" y="230"><tspan class="num">100K+</tspan> pages/month</text>
-  <rect class="chip" x="498" y="206" width="158" height="38" rx="19"/>
-  <text class="chipt" x="518" y="230"><tspan class="num">10</tspan> countries</text>
+  <rect class="chip" x="64" y="226" width="210" height="38" rx="19"/>
+  <text class="chipt" x="84" y="250"><tspan class="teal">3.8M+</tspan> docs indexed</text>
+  <rect class="chip" x="286" y="226" width="200" height="38" rx="19"/>
+  <text class="chipt" x="306" y="250"><tspan class="teal">100K+</tspan> pages/month</text>
+  <rect class="chip" x="498" y="226" width="152" height="38" rx="19"/>
+  <text class="chipt" x="518" y="250"><tspan class="teal">10</tspan> countries</text>
 
-  <!-- right: documents -> embeddings -> answers -->
-  <rect class="doc" x="820" y="64" width="124" height="160" rx="8" opacity=".55"/>
-  <rect class="doc" x="840" y="76" width="124" height="160" rx="8" opacity=".8"/>
-  <rect class="doc" x="860" y="88" width="124" height="160" rx="8"/>
-  <rect x="878" y="108" width="56" height="7" rx="3.5" style="fill:#5eead4;opacity:.85"/>
-  <rect class="line" x="878" y="128" width="88" height="5" rx="2.5"/>
-  <rect class="line" x="878" y="142" width="72" height="5" rx="2.5"/>
-  <rect class="line" x="878" y="156" width="82" height="5" rx="2.5"/>
-  <rect class="line" x="878" y="178" width="40" height="5" rx="2.5"/>
-  <rect class="line" x="936" y="178" width="30" height="5" rx="2.5"/>
-  <rect class="line" x="878" y="192" width="40" height="5" rx="2.5"/>
-  <rect class="line" x="936" y="192" width="30" height="5" rx="2.5"/>
-  <rect class="line" x="878" y="218" width="88" height="5" rx="2.5"/>
-  <g clip-path="url(#front)">
-    <rect class="scan" x="860" y="88" width="124" height="60" fill="url(#beam)"/>
+  <!-- right: an invoice is read, indexed, and answered about -->
+  <rect class="doc" x="744" y="62" width="124" height="168" rx="8" opacity=".45"/>
+  <rect class="doc" x="756" y="72" width="124" height="168" rx="8" opacity=".75"/>
+
+  <g class="front">
+    <rect class="doc" x="768" y="82" width="124" height="168" rx="8"/>
+    <rect class="lnb" x="784" y="98" width="30" height="8" rx="2"/>
+    <rect class="ln" x="846" y="99" width="30" height="5" rx="2.5"/>
+    <rect class="lnb" x="784" y="124" width="64" height="6" rx="3"/>
+    <rect class="ln" x="784" y="144" width="92" height="5" rx="2.5"/>
+    <rect class="ln" x="784" y="156" width="74" height="5" rx="2.5"/>
+    <rect class="ln" x="784" y="179" width="44" height="5" rx="2.5"/>
+    <rect class="lnb" x="842" y="178" width="34" height="6" rx="3"/>
+    <rect class="ln" x="784" y="198" width="92" height="4" rx="2"/>
+    <rect class="ln" x="784" y="208" width="92" height="4" rx="2"/>
+    <rect class="ln" x="784" y="230" width="30" height="5" rx="2.5"/>
+    <rect class="lnb" x="836" y="228" width="40" height="8" rx="3"/>
+    <g clip-path="url(#docclip)">
+      <rect class="beam" x="768" y="82" width="124" height="46" fill="url(#beam)"/>
+    </g>
+    <rect class="box bA" x="779" y="118" width="74" height="18" rx="3"/>
+    <rect class="box bB" x="837" y="172" width="44" height="18" rx="3"/>
+    <rect class="box bC" x="831" y="222" width="50" height="20" rx="3"/>
   </g>
 
-  <circle class="flow" cx="998" cy="168" r="3.5" fill="#5eead4"/>
-  <circle class="flow f2" cx="998" cy="158" r="2.5" fill="#5eead4"/>
-  <circle class="flow f3" cx="998" cy="176" r="3" fill="#5eead4"/>
-  <circle class="flow f4" cx="998" cy="164" r="2.5" fill="#5eead4"/>
-  <circle class="flow f5" cx="998" cy="172" r="3.5" fill="#5eead4"/>
-  <circle class="flow f6" cx="998" cy="160" r="3" fill="#5eead4"/>
+  <circle class="dA" cx="816" cy="127" r="3.5" fill="#5eead4"/>
+  <circle class="dB" cx="859" cy="181" r="3.5" fill="#5eead4"/>
+  <circle class="dC" cx="856" cy="232" r="3.5" fill="#5eead4"/>
 
-  <line class="edge" x1="1092" y1="112" x2="1128" y2="140"/>
-  <line class="edge" x1="1128" y1="140" x2="1100" y2="176"/>
-  <line class="edge" x1="1100" y1="176" x2="1142" y2="204"/>
-  <line class="edge" x1="1092" y1="112" x2="1100" y2="176"/>
-  <line class="edge" x1="1100" y1="176" x2="1084" y2="224"/>
-  <line class="edge" x1="1128" y1="140" x2="1150" y2="96"/>
-  <circle class="node pulse" cx="1092" cy="112" r="6"/>
-  <circle class="node pulse p2" cx="1128" cy="140" r="5"/>
-  <circle class="node" cx="1100" cy="176" r="8"/>
-  <circle class="node pulse p3" cx="1142" cy="204" r="5"/>
-  <circle class="node pulse p4" cx="1084" cy="224" r="4.5"/>
-  <circle class="node pulse p2" cx="1150" cy="96" r="4"/>
+  <line class="edge" x1="960" y1="96" x2="1004" y2="134"/>
+  <line class="edge" x1="1006" y1="70" x2="1004" y2="134"/>
+  <line class="edge" x1="1052" y1="104" x2="1004" y2="134"/>
+  <line class="edge" x1="1052" y1="104" x2="1092" y2="82"/>
+  <line class="edge" x1="1004" y1="134" x2="950" y2="160"/>
+  <line class="edge" x1="1052" y1="104" x2="1080" y2="150"/>
+  <line class="edge" x1="960" y1="96" x2="1006" y2="70"/>
+  <line class="nedge ne" x1="1036" y1="170" x2="1004" y2="134"/>
+  <line class="nedge ne" x1="1036" y1="170" x2="1080" y2="150"/>
+  <circle class="node" cx="960" cy="96" r="5"/>
+  <circle class="node" cx="1006" cy="70" r="4"/>
+  <circle class="node" cx="1052" cy="104" r="5"/>
+  <circle class="node hub" cx="1004" cy="134" r="7"/>
+  <circle class="node" cx="1092" cy="82" r="4"/>
+  <circle class="node" cx="1080" cy="150" r="4.5"/>
+  <circle class="node" cx="950" cy="160" r="4"/>
+  <circle class="newnode" cx="1036" cy="170" r="6" fill="#5eead4"/>
+  <line class="nedge link" x1="1036" y1="177" x2="1036" y2="200" stroke-dasharray="30"/>
+
+  <g class="card">
+    <rect x="904" y="200" width="252" height="102" rx="12" fill="#22304f" stroke="#3b4a6b" stroke-width="1.2"/>
+    <g clip-path="url(#cardclip)">
+      <text class="q" x="922" y="228">› what's overdue?</text>
+      <rect class="cover cq" x="922" y="212" width="240" height="22"/>
+      <text class="a" x="922" y="256"><tspan class="teal">3 invoices</tspan> · €48,200</text>
+      <rect class="cover ca" x="922" y="238" width="240" height="25"/>
+    </g>
+    <g class="bt">
+      <rect class="btn press" x="922" y="270" width="168" height="22" rx="11"/>
+      <text class="btnt" x="934" y="285">✓ approve reminders</text>
+    </g>
+  </g>
 </svg>

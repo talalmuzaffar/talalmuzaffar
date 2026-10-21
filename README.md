@@ -16,32 +16,23 @@
   <a href="mailto:talalmuzaffar3@gmail.com"><img alt="Email" src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white"></a>
 </p>
 
-Accounts payable runs on paperwork: invoices, purchase orders, delivery notes. At [DOST AI](https://dost.io), my team and I make all of it answerable. We search 3.8M+ documents in under a second, extract 100K+ pages a month, and run agents that answer finance questions for customers in ten countries.
+Accounts payable runs on paperwork: invoices, purchase orders, delivery notes. At [DOST AI](https://dost.io) I lead the ML team that makes all of it answerable. We search 3.8M+ documents in under a second, extract 100K+ pages a month, and run agents that answer finance questions for customers in ten countries.
 
-### Delivered at DOST AI
+### How I got here
 
-<img src="assets/metrics.svg" width="100%" alt="Onboarding in 1 session instead of days · 10+ enterprise customers onboarded a month · vendor mapping in 5 minutes per batch, 2× faster · 100+ vendors reconciled automatically per customer">
+**Islamabad.** I studied data science at FAST National University, where I worked as a teaching assistant and made the Dean's List. My first real ML work was in healthcare. I co-authored a paper on measuring cognitive function digitally in low- and middle-income countries, presented at the American Epilepsy Society. At the university's KDD Lab, I fine-tuned LLaMA, Falcon, BART, Phi and Gemma on medical text. One run fit Falcon-7B onto a single T4 GPU with 4-bit QLoRA and trained it to write research abstracts from full papers, reaching a BERTScore of 0.90 on MICCAI.
 
-- **<mark>3.8M+ documents</mark>, sub-second retrieval.** A production RAG pipeline over invoices, purchase orders and delivery notes. It powers vendor dependency analysis, due-date forecasting and monthly spend projections.
-- **<mark>100K+ pages</mark> extracted a month.** FastAPI services that pull every field out of each document (vendor, PO number, due date, payment terms, line items, taxes, totals) into a structured financial knowledge base.
-- **Days of onboarding turned into <mark>one guided session</mark>.** InstanceBuilder is a 13-step setup covering ERP connection, invoice ingestion, GL coding, approval workflows and go-live testing.
-- **<mark>10+ enterprise customers</mark> onboarded every month.** Vendor field reconciliation is automated across 100+ vendors per customer, which halved each mapping batch to <mark>5 minutes</mark>.
-- **Discrepancies caught <mark>before approval</mark>.** Three-way matching of invoice, PO and delivery note now also checks line items against each customer's contract terms.
-- **Agents that <mark>ask before they act</mark>.** AskDOST answers plain-language questions about invoices and workflows through a streaming Claude tool-use loop over MCP. Every write waits for the user's approval, and every call is traced with OpenTelemetry while customer financial data stays out of telemetry.
-- **DOST's <mark>official Claude connector</mark>**, with OAuth 2.0 + PKCE, SSO token exchange, and Azure Managed Identity so no storage secrets live in the environment.
+**DOST AI.** I joined DOST AI, a Barcelona company that automates accounts payable, as an ML intern. My job was to show that OCR, entity extraction and retrieval could hold up on real customer invoices. That work turned into a full-time offer, and I built it out into the extraction services and RAG pipeline the product runs on, with sub-second retrieval across millions of documents.
+
+I led DOST's team to a win at Google's AI Booster Program in Madrid and was promoted to ML Lead, where I run a team of five. I built AskDOST, which lets customers ask about their invoices and approval workflows in plain language. It runs a streaming Claude tool-use loop over DOST's MCP server, nothing gets written without the user confirming it, and every call is traced with OpenTelemetry while customer financial data stays out of the logs. I also led DOST's official Claude connector and built InstanceBuilder, which replaced days of onboarding back-and-forth with one guided session.
+
+**Paris.** I now live in Paris, where I'm doing an MSc in Data Science & Analytics at [EPITA](https://www.epita.fr/) while leading ML at DOST AI.
 
 ### Products I've built
 
-- **<mark>Live at UNCW</mark> and other US universities.** [UniversityTHRIVE](https://universitythrive.ai/) forms and schedules cohorts automatically. Recurring meetings hold their local time across DST changes, and moving one session updates only that occurrence in Google Calendar and Outlook.
-- **Empty repo to <mark>production, solo</mark>.** AcadaME is an AI academic advising platform with text and real-time voice. Its hybrid search fuses HNSW vector search with full-text ranking on pgvector, using a similarity floor and 6× over-fetch re-ranking.
-- **Learning pathways in <mark>seconds instead of months</mark>.** A course-recommendation engine that matches university syllabi to professional-development modules and assembles a personalized pathway for each goal.
-
-### Research & recognition
-
-- **<mark>Winning team</mark>**, Google AI Booster Program, Madrid
-- **<mark>0.90 BERTScore</mark>** on MICCAI: fine-tuned Falcon-7B with 4-bit QLoRA on a single T4 GPU to write research abstracts from full papers
-- **Co-author**, *Choices for Measuring Cognitive Function Digitally in Low- and Middle-Income Countries*, American Epilepsy Society
-- **Dean's List**, FAST National University · now doing an MSc in Data Science & Analytics at [EPITA](https://www.epita.fr/), Paris
+- **[UniversityTHRIVE](https://universitythrive.ai/)** forms and schedules cohorts at UNCW and other US universities. Recurring meetings stay at the right local time across DST changes, and moving one session updates only that occurrence in Google Calendar and Outlook.
+- **AcadaME** is an AI academic advising platform with text and real-time voice. I built it alone, from an empty repo to production, with hybrid vector and full-text search on pgvector.
+- **A course-recommendation engine for universities** that matches syllabi to professional-development modules and builds personalized learning pathways.
 
 ### Public projects
 
